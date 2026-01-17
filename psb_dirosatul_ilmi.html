@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSB Rumah Tahfizd Diroosatul Ilmi</title>
+    <!-- Menggunakan Font Google: Poppins untuk modernitas dan Amiri untuk nuansa Arab -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Ikon dari FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIABEL & RESET --- */
+        :root {
+            --primary-color: #0f5132; /* Hijau Tua Islami */
+            --secondary-color: #d4af37; /* Emas Elegan */
+            --accent-color: #198754; /* Hijau Lebih Terang */
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary-color); }
+        .text-secondary { color: var(--secondary-color); }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #c5a028;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--text-light);
+            color: var(--text-light);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-light);
+            color: var(--primary-color);
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px; /* Tinggi diperbesar sedikit untuk logo */
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Style Logo Gambar */
+        .logo-img {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            /* Filter untuk memastikan logo terlihat bagus di background putih */
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            /* Placeholder background yang relevan */
+            background: linear-gradient(rgba(15, 81, 50, 0.85), rgba(15, 81, 50, 0.75)), url('https://picsum.photos/seed/islamicArt/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px; /* Offset header */
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, transparent 20%, var(--primary-color) 150%);
+            opacity: 0.2;
+            animation: pulseBg 10s infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .hero-subtitle {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- VISI MISI --- */
+        .visi-misi-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        /* --- PROGRAM & FASILITAS --- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Minwidth disesuaikan agar muat lebih banyak */
+            gap: 20px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            border: 1px solid var(--secondary-color);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(15, 81, 50, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover .feature-icon {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        /* --- SYARAT & BIAYA --- */
+        .requirements-list {
+            list-style: none;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .requirements-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .requirements-list li i {
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+
+        .price-card {
+            background: linear-gradient(135deg, var(--primary-color), #0a3622);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-card::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -30px;
+            right: -30px;
+        }
+
+        .price-highlight {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin: 20px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .price-details {
+            text-align: left;
+            margin-top: 30px;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(255,255,255,0.3);
+        }
+
+        .price-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .price-spp {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        .price-spp span {
+            color: var(--secondary-color);
+        }
+
+        /* --- FORM PENDAFTARAN --- */
+        .registration-section {
+            background-color: white;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-check {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .form-check input {
+            margin-top: 5px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h3 { color: var(--secondary-color); font-family: 'Amiri', serif; font-size: 2rem; }
+        .footer-info p { margin-bottom: 10px; opacity: 0.9; }
+        .footer-contact i { width: 25px; color: var(--secondary-color); }
+        
+        .map-frame {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/map/400/200') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* --- MODAL & TOAST --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            transform: scale(0.8);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        /* --- SCROLL ANIMATION CLASS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            h2 { font-size: 2rem; }
+            .hero-title { font-size: 2.2rem; }
+            .nav-links { display: none; } 
+            .menu-toggle { display: block; }
+            .visi-misi-cards { grid-template-columns: 1fr; }
+            
+            .nav-links.active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
+            }
+            .logo-img {
+                height: 50px;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <!-- Gambar Logo dari link yang diberikan -->
+                <img src="https://z-cdn-media.chatglm.cn/files/19e3c2b3-b6c6-4f49-bf57-57a37b58ee0e.png?auth_key=1868608307-8fba53f101664b0a9b95060802cf3c80-0-83212ddac2f5e20b2479859f51aebe11" alt="Logo Rumah Tahfizd Diroosatul Ilmi" class="logo-img">
+                <div class="logo-text">
+                    Rumah Tahfizd<br>
+                    <span>Diroosatul Ilmi</span>
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#biaya">Biaya</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle">Rumah Tahfizd Diroosatul Ilmi</div>
+            <h1 class="hero-title">Penerimaan Santri Baru <br> Khusus Putri</h1>
+            <p class="hero-desc">Mewujudkan pendidikan berkualitas, bermanhaj salafusshalih dalam naungan cahaya al-Qur'an dan sunnah shalihah.</p>
+            
+            <div class="badges">
+                <span class="badge"><i class="fas fa-check-circle"></i> Kuota Terbatas</span>
+                <span class="badge"><i class="fas fa-female"></i> Khusus Putri</span>
+            </div>
+
+            <a href="#daftar" class="btn">Daftar Sekarang</a>
+            <a href="#program" class="btn btn-outline" style="margin-left: 10px;">Pelajari Lebih Lanjut</a>
+        </div>
+    </section>
+
+    <!-- Visi Misi Section -->
+    <section id="tentang" class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <h2>Tentang Kami</h2>
+            </div>
+            <div class="visi-misi-cards reveal">
+                <div class="card">
+                    <i class="fas fa-eye card-icon"></i>
+                    <h3>Visi</h3>
+                    <p>Mewujudkan pendidikan berkualitas, bermanhaj salafusshalih dalam naungan cahaya al-qur'an dan sunnah shalihah.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-rocket card-icon"></i>
+                    <h3>Misi</h3>
+                    <p>Membentuk santriwati salihah yang berakidah lurus, beribadah benar, berakhlak mulia, mandiri, terampil, serta berprestasi dalam hafalan Al-Qur'an, bahasa Arab, dan akademik berkualitas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program & Fasilitas -->
+    <section id="program" class="section-padding" style="background-color: #e9ecef;">
+        <div class="container">
+            <div class="text-center">
+                <h2>Program & Fasilitas</h2>
+            </div>
+
+            <div class="grid-3" style="margin-bottom: 50px;">
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-book-quran"></i></div>
+                    <h3>Tahfidzul Qur'an</h3>
+                    <p>Program unggulan menghafal Al-Qur'an dengan metode yang mudah dan bimbingan intensif.</p>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-language"></i></div>
+                    <h3>Bahasa Arab</h3>
+                    <p>Penerapan bahasa Arab dalam percakapan sehari-hari (Hiwar) untuk pemahaman kitab kuning.</p>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h3>Akademik & Keputrian</h3>
+                    <p>Pendidikan setingkat SMP (3 Tahun) yang terintegrasi dengan keterampilan keputrian.</p>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-bottom: 30px;">
+                <h3>Fasilitas Asrama</h3>
+            </div>
+            
+            <!-- Grid Fasilitas (Diperbarui) -->
+            <div class="grid-3">
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-wind"></i></div>
+                    <h4>Ruangan Full AC</h4>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-bed"></i></div>
+                    <h4>Ranjang Tidur Nyaman</h4>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-couch"></i></div>
+                    <h4>Kasur & Lengkap</h4>
+                </div>
+                <!-- Fasilitas Baru -->
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-mosque"></i></div>
+                    <h4>Mushola</h4>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-school"></i></div>
+                    <h4>Kelas Belajar</h4>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-utensils"></i></div>
+                    <h4>Kantin Sehat</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Syarat & Biaya -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-3" style="grid-template-columns: 1fr 1fr;">
+                
+                <!-- Syarat -->
+                <div class="reveal">
+                    <h2>Syarat Pendaftaran</h2>
+                    <ul class="requirements-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Muslimah yang sehat jasmani & rohani.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Berkelakuan baik dan bersedia mengikuti seluruh program pendidikan.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Lulusan SD/MI atau setara.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>Siap menempuh pendidikan selama 3 tahun.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-file-alt"></i>
+                            <div>Melengkapi berkas pendaftaran (Mengisi Formulir Online).</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Biaya -->
+                <div class="reveal" id="biaya">
+                    <h2>Investasi Pendidikan</h2>
+                    <div class="price-card">
+                        <h3>Uang Masuk & SPP</h3>
+                        
+                        <!-- Elemen target animasi angka -->
+                        <div class="price-highlight">Rp <span id="price-uang-masuk">0</span></div>
+                        <p>Sudah termasuk 1 Seragam & SPP Juli 2025</p>
+                        
+                        <div class="price-details">
+                            <div class="price-row">
+                                <span>Uang Pangkal</span>
+                                <span>: Termasuk di atas</span>
+                            </div>
+                            <div class="price-row">
+                                <span>SPP Bulanan</span>
+                                <span>: Rp <span id="price-spp">0</span></span>
+                            </div>
+                            <div class="price-row">
+                                <span>Seragam (1 Stel)</span>
+                                <span>: Termasuk</span>
+                            </div>
+                        </div>
+                        <br>
+                        <p style="font-size: 0.8rem; opacity: 0.8;">*Biaya dapat berubah sewaktu-waktu mengikuti kebijakan yayasan.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Pendaftaran -->
+    <section id="daftar" class="section-padding registration-section">
+        <div class="container">
+            <div class="text-center reveal">
+                <h2>Formulir Pendaftaran</h2>
+                <p>Silakan isi data calon santriwati dengan benar dan lengkap.</p>
+            </div>
+            <br>
+            <div class="form-container reveal">
+                <form id="psbForm" name="psbForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap Calon Santri</label>
+                        <input type="text" id="nama" name="nama" required placeholder="Contoh: Aisyah binti Abu Bakar">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="asal_sekolah">Asal Sekolah (SD/MI)</label>
+                        <input type="text" id="asal_sekolah" name="asal_sekolah" required placeholder="Contoh: SDN 1 Pebayuran">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wali">Nama Wali / Orang Tua</label>
+                        <input type="text" id="wali" name="wali" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wa">Nomor WhatsApp (Aktif)</label>
+                        <input type="tel" id="wa" name="wa" required placeholder="08xxxxxxxxxx">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alamat">Alamat Lengkap</label>
+                        <textarea id="alamat" name="alamat" rows="3" required placeholder="Jalan, RT/RW, Desa, Kecamatan..."></textarea>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="agreement" required>
+                        <label for="agreement">Saya menyatakan data yang diisi adalah benar dan bersedia mengikuti aturan Rumah Tahfizd Diroosatul Ilmi.</label>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Kirim Pendaftaran
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Kontak -->
+    <footer id="kontak">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>Diroosatul Ilmi</h3>
+                    <p>Membentuk generasi Rabbani yang berakhlak mulia dan berprestasi.</p>
+                    <br>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Raya Pebayuran RT 05 RW 03, Kp. Sayuran, Kel. Kertasari, Kec. Pebayuran (Dpn Pabrik Las), Bekasi 17710</p>
+                        <p><i class="fas fa-phone"></i> Ka. Evi: 0838 7216 8993</p>
+                        <p><i class="fas fa-envelope"></i> dirosatulilmibekasi@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="map-frame">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jl.+Raya+Pebayuran+RT+05+RW+03+Kertasari+Bekasi" target="_blank" class="map-placeholder">
+                        <div style="text-align: center;">
+                            <i class="fas fa-map-marked-alt fa-3x" style="margin-bottom: 10px;"></i><br>
+                            Lihat di Google Maps
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Rumah Tahfizd Diroosatul Ilmi. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Success -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Pendaftaran Berhasil!</h3>
+            <p>Terima kasih telah mendaftar. Data Anda telah kami terima. Admin kami akan segera menghubungi Anda via WhatsApp.</p>
+            <br>
+            <button class="btn" onclick="closeModal()">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // --- Scroll Animation (Intersection Observer) ---
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Hanya animasi sekali
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+        revealElements.forEach(el => revealObserver.observe(el));
+
+
+        // --- ANIMASI ANGKA BIAYA ---
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                
+                // Fungsi easing (agar animasi melambat di akhir)
+                const easeProgress = 1 - (1 - progress) * (1 - progress);
+                
+                const currentVal = Math.floor(easeProgress * (end - start) + start);
+                obj.innerHTML = currentVal.toLocaleString('id-ID');
+                
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.innerHTML = end.toLocaleString('id-ID'); // Pastikan angka akhir tepat
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Observer khusus untuk animasi harga
+        const priceSection = document.getElementById('biaya');
+        const priceAnimConfig = { threshold: 0.5 };
+        
+        const priceObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    // Animasi Uang Masuk (3 Juta)
+                    const uangMasukEl = document.getElementById('price-uang-masuk');
+                    animateValue(uangMasukEl, 0, 3000000, 2000);
+
+                    // Animasi SPP (800 Ribu)
+                    const sppEl = document.getElementById('price-spp');
+                    animateValue(sppEl, 0, 800000, 2500);
+                    
+                    priceObserver.unobserve(entry.target); // Hanya sekali
+                }
+            });
+        }, priceAnimConfig);
+
+        priceObserver.observe(priceSection);
+
+
+        // --- Form Handling ---
+                // --- KONEKSI KE GOOGLE SHEETS ---
+        // GANTI URL INI DENGAN URL WEB APP DARI GOOGLE SCRIPT
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyrGtJiYCd4sKUUmdNtHz4BGCpD-6gmeuZhxCZi0QCafKPXK5ytcXu0fVRLR6mtGPn3AQ/exec'; 
+
+        const form = document.forms['psbForm']; // Pastikan name form di HTML adalah "psbForm"
+        const modal = document.getElementById('successModal');
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          
+          // Tampilkan Loading
+          const originalBtnText = submitBtn.innerHTML;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim Data...';
+          submitBtn.disabled = true;
+
+          // Kirim Data ke Google Sheets
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                // Jika Sukses
+                modal.classList.add('active');
+                form.reset();
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                console.log('Success!', response);
+            })
+            .catch(error => {
+                // Jika Gagal
+                alert('Terjadi kesalahan saat mengirim data: ' + error.message);
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                console.error('Error!', error.message);
+            });
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
